@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>无标题文档</title>
+	<script>
+	  function copyImg()
+	  {
+		  var obj=document.getElementById("img1");
+		  var onewimg=obj.cloneNode(true);
+		  document.body.appendChild(onewimg);
+		  }
+	  	  function changeImg()
+	  {
+		  var obj=document.getElementById("img1");
+		  var onewimg=document.createElement("img");
+		  onewimg.setAttribute("src","images/xiaoyuan2.jpg");
+		  onewimg.setAttribute("width","200");
+		  onewimg.setAttribute("height","134"); 
+		  onewimg.setAttribute("border","1"); 
+		  onewimg.setAttribute("id","img2"); 
+		  document.body.replaceChild(onewimg,obj);	  
+		  //alert(document.body.innerHTML);
+		  }
+	</script>
+</head>
+<body>
+<input type="button" value="复制图片" onclick="copyImg()" />&nbsp;&nbsp;
+<input type="button" value="更改图片" onclick="changeImg()" /><br />
+<img src="images/xiaoyuan1.jpg" width="200" height="134" border="1" id="img1" />
+</body>
+</html>
