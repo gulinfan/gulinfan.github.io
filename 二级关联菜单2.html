@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二级联动菜单2</title>
+</head>
+<body>
+	<select  id="sel1">    
+	</select>
+	<select  id="sel2"> 
+	</select>
+	<script>
+	//利用数组保存数据
+	var sel1Arr=["校园网","国内网站","国外网站"];
+	var sel2Arr=[["教育在线","电子邮件","图书馆","后勤服务大厅","学生工作"],["新浪网","网易","搜狐","百度"],["惠普","IBM","微软"]];
+	//给下拉框添加选项
+	function createOption(obj,data){
+		for(var i in data){
+			var op=new Option(data[i],i);
+			obj.add(op);
+		}
+	}
+	var sel1=document.getElementById("sel1");
+	createOption(sel1,sel1Arr);
+	var sel2=document.getElementById("sel2");
+	createOption(sel2,sel2Arr[0]);
+	sel1.onchange=function(){
+		sel2.options.length=0;
+		// createOption(sel2,sel2Arr[sel1.value]);
+		createOption(sel2,sel2Arr[sel1.selectedIndex]);
+	}
+	</script>
+</body>
+</html>

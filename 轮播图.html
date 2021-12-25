@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>轮播图效果演示</title>
+<style>
+    .wrapper{
+		width:520px;
+		height:280px;
+		margin:10px auto;	
+		border:1px solid #ccc;	
+		position:relative; /*父元素使用相对定位的目的：（1）保持父元素不动；（2）绝对定位的子元素偏移量是相对父元素*/    
+		/*记住定位时的常用方法："父相子绝"*/
+		}
+	.container{
+		width:520px;
+		height:280px;
+		}
+	.links{
+		position:absolute;
+		right:20px;
+		bottom:5px;
+		}
+	.links a{
+		display:inline-block;
+		width:20px;
+		height:20px;
+		line-height:20px;		
+		text-decoration:none;
+		text-align:center;
+		}
+	.a1{
+		color:#fff;  
+		background-color:#f00;  
+		}
+	.a2{
+		color:#000;   
+		background-color:#ff0;
+		}
+</style>
+<script>
+    var NowImg=1;   //当前显示的图像的编号
+    var MaxImg=4;
+    var timer;
+    function show(){
+    	if(arguments.length>0){
+    	   NowImg=arguments[0];
+    	   	clearInterval(timer);
+    	}
+    	for(var i=1;i<=MaxImg;i++)
+    		if(i==NowImg){
+                document.images[i-1].style.display="block";
+			   document.getElementsByTagName("a")[i-1].className="a2";
+    		}
+    		else{
+    			document.images[i-1].style.display="none";
+               document.getElementsByTagName("a")[i-1].className="a1";
+    		}
+    	if(NowImg==MaxImg) NowImg=1;
+    	else NowImg++;	
+    }
+    timer=setInterval("show()",1500);
+    function start(){
+       timer=setInterval("show()",1500);
+    }
+</script>
+</head>
+<body>
+<!-- 网页开发中，书写css常用class选择器 -->	
+<div class="wrapper">
+    <div class="container">
+        <img src="images/ad-01.jpg" id="div1"  >
+        <img src="images/ad-02.jpg" id="div2" style="display:none;" />
+        <img src="images/ad-03.jpg" id="div3" style="display:none;"/>
+        <img src="images/ad-04.jpg" id="div4" style="display:none;" />
+    </div>
+    <div class="links">
+    	<a href="javascript:;" onmouseover="show(1)" onmouseout="start()" class="a2">1</a>
+       <a href="javascript:;" onmouseover="show(2)" onmouseout="start()" class="a1">2</a>
+       <a href="javascript:;" onmouseover="show(3)" onmouseout="start()" class="a1">3</a>
+        <a href="javascript:;" onmouseover="show(4)"onmouseout="start()" class="a1">4</a>
+    </div>
+</div>
+</body>
+
+</html>

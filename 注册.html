@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新用户注册页面</title>
+	<style type="text/css">
+	body,dl,dt,dd,div,form {padding:0;margin:0;}
+#main{
+	width:650px;
+	margin:0 auto;
+	}
+caption{
+	font-size: 30px;
+	color: red;
+	margin-bottom: 20px;
+}
+	.inputs{
+		border:solid 1px #a4c8e0;
+		width:150px;
+		height:15px;
+	}
+	
+	.userWidth{
+		width:110px;
+		}
+	.content div{
+		float:left;
+		font-size:12px;
+		color:#000;
+		}
+	dl{
+		clear:both;
+		}
+	dt,dd{
+		float:left;
+		}
+	dt{
+		width:130px;
+		text-align:right;
+		font-size:14px;
+		height:30px;
+		line-height:25px;
+		}
+	dd{
+		font-size:12px;
+		color:#666666;
+		width:180px;
+		}
+/*当鼠标放到文本框时，提示文本的样式*/
+.import_prompt{
+	border:solid 1px #ffcd00;
+	background-color:#ffffda;
+	padding-left:5px;
+	padding-right:5px;
+	line-height:20px;
+	}
+/*当文本框内容不符合要求时，提示文本的样式*/
+.error_prompt{
+	border:solid 1px #ff3300;
+	background-color:#fff2e5;
+	background-repeat:no-repeat;
+	background-position:5px 2px;
+	padding:2px 5px 0px 25px;
+	line-height:20px;
+	}
+/*当文本框内容输入正确时，提示文本的样式*/
+.ok_prompt{
+	border:solid 1px #01be00;
+	background-color:#e6fee4;
+	background-repeat:no-repeat;
+	background-position:5px 2px;
+	padding:2px 5px 0px 25px;
+	line-height:20px;
+	}
+
+	</style>
+	<script type="text/javascript">
+      function $(elementId){
+	return document.getElementById(elementId);
+	}
+	
+/*当鼠标放在通行证用户名文本框时，提示文本及样式*/	
+function userNameFocus(){
+	var userNameId=$("userNameId");
+	userNameId.className="import_prompt";
+	userNameId.innerHTML="1、由字母、数字、下划线、点、减号组成<br/>2、只能以数字、字母开头或结尾，且长度为4-18";
+	}
+	
+/*当鼠标离开通行证用户名文本框时，提示文本及样式*/	
+function userNameBlur(){
+	var userName=$("userName");
+	var userNameId=$("userNameId");
+	var reg=/^[0-9a-zA-Z][0-9a-zA-Z_.-]{2,16}[0-9a-zA-Z]$/;
+	if(userName.value==""){
+		userNameId.className="error_prompt";
+		userNameId.innerHTML="通行证用户名不能为空，请输入通行证用户名";
+		return false;
+		}
+	if(reg.test(userName.value)==false){
+		userNameId.className="error_prompt";
+	    userNameId.innerHTML="1、由字母、数字、下划线、点、减号组成<br/>2、只能以数字、字母开头或结尾，且长度为4-18";
+		return false;
+		}
+		userNameId.className="ok_prompt";
+	    userNameId.innerHTML="通行证用户名输入正确";
+		return true;
+	}
+
+/*当鼠标放在密码文本框时，提示文本及样式*/	
+function pwdFocus(){
+	var pwdId=$("pwdId");
+	pwdId.className="import_prompt";
+	pwdId.innerHTML="密码长度为6-16";
+	}
+	
+/*当鼠标离开密码文本框时，提示文本及样式*/	
+function pwdBlur(){
+	var pwd=$("pwd");
+	var pwdId=$("pwdId");
+	if(pwd.value==""){
+		pwdId.className="error_prompt";
+		pwdId.innerHTML="密码不能为空，请输入密码";
+		return false;
+		}
+	if(pwd.value.length<6 || pwd.value.length>16){
+		pwdId.className="error_prompt";
+	    pwdId.innerHTML="密码长度为6-16";
+		return false;
+		}
+		pwdId.className="ok_prompt";
+	    pwdId.innerHTML="密码输入正确";
+		return true;
+	}
+function checkForm(){
+	  var flagUserName=userNameBlur();
+	  var flagPwd=pwdBlur();
+	  if(flagUserName==true &&flagPwd==true){
+		  document.myform.submit();
+		  }
+		else{
+			alert("输入有误，无法注册！");
+			}
+	
+	}
+	</script>
+</head>
+<body>
+<div id="main">
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <caption>新用户注册</caption>
+  <tr>
+    <td class="content">
+      <form action="" method="post" name="myform" >
+        <dl>
+          <dt>通行证用户名：</dt>
+          <dd><input type="text" id="userName" class="inputs userWidth" onfocus="userNameFocus()" onblur="userNameBlur()" /> @163.com</dd>
+          <div id="userNameId"></div>
+        </dl>
+         <dl>
+          <dt>登录密码：</dt>
+          <dd><input type="password" id="pwd" class="inputs"  onfocus="pwdFocus()" onblur="pwdBlur()"/></dd>
+          <div id="pwdId"></div>
+        </dl>
+        <dl>
+          <dt></dt>
+          <dd><input name=" " type="button" value="注册" onclick="checkForm()"/></dd>
+        </dl>
+      </form>
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

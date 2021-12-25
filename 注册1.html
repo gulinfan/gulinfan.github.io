@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+      //用户名获取焦点 
+     function nameFocus(){
+     	var span1=document.getElementById("ss1");
+     	span1.innerHTML="用户名以字母开头，由字母、数字和下划线组成，长度不小于6个";
+     	span1.style.color="pink";
+     }
+     //用户名失去焦点 
+     function  nameBlur(){
+     	var name=document.getElementById("name");
+     	var span1=document.getElementById("ss1");
+     	var reg=/^[a-zA-Z][a-zA-Z0-9_]{5,}$/;
+     	if(name.value==""){
+     		span1.innerHTML="用户名不能为空！";
+     		span1.style.color="red";
+     		return false;
+     	}
+     	if(!reg.test(name.value)){
+     		span1.innerHTML="用户名以字母开头，由字母、数字和下划线组成，长度不小于6个";
+     	span1.style.color="red";
+     	return false;
+     	}
+     	span1.innerHTML="输入正确！";
+     		span1.style.color="green";
+     		return true;
+     }
+     //密码框获取焦点
+     function pwdFocus(){
+     	var span2=document.getElementById("ss2");
+     	span2.innerHTML="密码由字母、数字组成长度不小于6个";
+     	span2.style.color="pink";
+     }
+      //密码框失去焦点
+      function  pwdBlur(){
+     	var pwd=document.getElementById("pwd");
+     	var span2=document.getElementById("ss2");
+     	var reg=/^[a-zA-Z0-9]{6,}$/;
+     	if(pwd.value==""){
+     		span2.innerHTML="密码不能为空！";
+     		span2.style.color="red";
+     		return false;
+     	}
+     	if(!reg.test(pwd.value)){
+     		span2.innerHTML="密码由字母、数字组成长度不小于6个";
+     	span2.style.color="red";
+     	return false;
+     	}
+     	span2.innerHTML="输入正确！";
+     		span2.style.color="green";
+     		return true;
+     }
+     function tijiao(){
+     	var flag1=nameBlur();
+     	var flag2=pwdBlur();
+     	if(flag1&&flag2)  document.getElementById("myform").submit();
+     	else alert("输入有误！");
+     }
+</script>
+
+</head>
+<body>
+<form action="" method="post" id="myform">
+	用户名：<input type="text" id="name" onfocus="nameFocus();"  onblur="nameBlur();" /><span id="ss1"></span><br />
+	密码：<input type="text" id="pwd"  onfocus="pwdFocus();"  onblur="pwdBlur();"/ ><span id="ss2"></span><br>
+	<input type="button" value="提交" onclick="tijiao();"/>
+</form>
+</body>
+</html>

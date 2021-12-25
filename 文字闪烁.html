@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+var colors=new Array(6);
+  colors[0]="#000000";
+  colors[1]="#ff0000";
+  colors[2]="#ffff00";
+  colors[3]="#00ffff";
+  colors[4]="#0000ff";
+  colors[5]="#cccccc";
+ var i=0;
+ function shan()
+ { var divObj=document.getElementById("txtLine");
+	 if(i<6) { 
+	 	 // divObj.style.display="block";
+	 	 divObj.style.visibility="visible";
+		 divObj.style.color=colors[i];
+	     i++;
+	 }
+	else{i=0;
+	  // divObj.style.display="none";
+	  divObj.style.visibility="hidden";}
+ }
+ window.setInterval("shan()",1000);
+</script>
+</head>
+<body onload="shan();">
+<div id="txtLine" style="text-align:center; font-size:30px;disply:none;">JavaScriptJavaScriptJavaScript</div>
+<h1 style="text-align:center">河南科技大学</h1>
+</body>
+</html>

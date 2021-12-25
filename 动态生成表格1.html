@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态生成表格</title>
+</head>
+<style type="text/css">
+<!--
+#form1{
+	width:300px;
+	margin:20px auto;
+}
+table {
+	border-collapse:collapse;
+	border-color:#0099FF;
+    width:800px;
+}
+td {
+	border-color:#0099FF;
+	padding:5px;
+}
+-->
+</style>
+<script type="text/javascript">
+<!--
+  function createTable(){
+    var iRowNum = document.form1.lstRowNum.value;
+    var iColNum = document.form1.lstColNum.value;
+	var sMsg="";
+    sMsg = "<table align='center' border='1' width='100%'>";
+    for(var i = 1; i <= iRowNum; i++){
+      sMsg += "<tr>";
+      for(var j = 1; j <= iColNum; j++){
+	    sMsg += "<td>第" + i + "行第" + j + "列</td>";
+	  }
+	  sMsg += "</tr>";
+    }
+    sMsg += "</table>";
+	document.getElementById("div1").innerHTML = sMsg;
+  }
+//-->
+</script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <fieldset>
+  <legend>动态创建表格</legend>
+  <div align="center">行数：
+    <select name="lstRowNum" id="lstRowNum">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    列数：
+    <select name="lstColNum" id="lstColNum">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <input name="btnCreateTable" type="button" id="btnCreateTable" onclick="createTable();" value="生成表格" />
+  </div>
+  </fieldset>
+</form>
+<div id="div1" align="center"></div>
+</body>
+</html>

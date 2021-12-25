@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select  id="province">
+		<option value="-1">请选择省份</option>     
+	</select>
+	<select  id="city">
+		<option value="-1">请选择城市</option> 
+	</select>
+	<select  id="district">
+		<option value="-1">请选择区</option> 
+	</select>
+	<script>
+	//利用数组保存数据
+	//保存省份的数组
+	var provinceArr=["河南省","江苏省","河北省"];   
+	//保存城市的数组
+	var cityArr=[["郑州市","洛阳市","开封市"],   //00  01  02
+	             ["苏州市","南京市","扬州市"],   //10  11  12
+	             ["石家庄","秦皇岛","张家口"]];  //20  21  22
+	//保存区域数组
+	var districtArr=[
+		[
+		  ["中原区","二七区","惠济区","金水区"],     //000  001 002  003
+		  ["涧西区","瀍河区","西宫区","吉利区"],     //010  011 012  013
+		  ["龙亭区","顺河回族区","鼓楼区","禹王台区"]//020  021 022  023
+		],
+		[
+		  ["吴中区","相城区","姑苏区","吴江区"],
+		  ["鼓楼区","玄武区","建邺区","秦淮区"],
+		  ["广陵区","邗江区","江都区"]
+		],
+		[
+		  ["新华区","桥西区","长安区","裕华区"],
+		  ["海港区","山海关区","北戴河区","抚宁区"],
+		  ["桥西区","桥东区","崇礼区","万全区"]
+		]
+	]
+	//创建省份下拉菜单
+	function createOption(obj,data){
+		for(var i in data){
+			var op=new Option(data[i],i);
+			obj.add(op);
+		}
+	}
+	var province=document.getElementById("province");
+	createOption(province,provinceArr);   //创建省份
+	var city=document.getElementById("city");
+	province.onchange=function(){   //选择省份
+		city.options.length=0;
+		createOption(city,cityArr[province.value]);     //添加城市
+		if(province.value>=0)  city.onchange();   //添加区域
+        else location.reload(); 
+	}
+	var district=document.getElementById("district");
+	city.onchange=function(){
+		district.options.length=0;
+		createOption(district,districtArr[province.value][city.value]);
+	}
+	</script>
+</body>
+</html>

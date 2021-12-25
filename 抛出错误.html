@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<p>请输出一个 5 到 10 之间的数字:</p>
+<input id="demo" type="text">
+<button type="button" onclick="myFunction();">测试输入</button>
+<p id="mess"></p>
+</body>
+<script type="text/javascript">
+    function myFunction(){
+    try{ 
+        //取元素的值
+        var x=document.getElementById("demo").value;   
+        //根据获取的值，抛出错误
+        if(x=="")    throw "值为空！";       
+        else if(isNaN(x)) throw "不是数字！";
+        else if(x<5)      throw "太小！";
+        else if(x>10)     throw "太大！";
+        else  throw "输入正确！";
+    }
+    catch(err){
+        var y=document.getElementById("mess");     
+        //将上面throw抛出的错误在p标签中显示
+        y.innerHTML="错误：" + err+"。";
+    }
+}
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset = "utf-8">
+  <title>全选按钮级联(双向)效果</title>
+  <style type = "text/css">
+	td{
+		text-align:center;
+	    font-size:32px;
+	    line-height:36px;
+	}
+	input{
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+	}
+    input[type=button]{
+        width: 100px;
+    }
+  </style>
+  <script>
+  	function checkAll(){
+  		var allCb=document.getElementById('all');
+  		var cbs=document.getElementsByName('product');
+  		for(var i=0;i<cbs.length;i++){
+  			/*if(allCb.checked==true)
+  				cbs[i].checked=true;
+  			else
+  				cbs[i].checked=false;*/
+  			cbs[i].checked=allCb.checked;
+  		}
+  	}
+  	function checkSingle(){
+  		var allCb=document.getElementById('all');
+  		var cbs=document.getElementsByName('product');
+  		for(var i=0;i<cbs.length;i++){
+  			if(cbs[i].checked==false){
+  				allCb.checked=false;
+  				break;
+  			}
+  		}
+  		if(i>=cbs.length) allCb.checked=true;
+  	}
+
+  	//点击按钮在表格中动态添加一行
+  	function addRow(){
+  		var newtr=document.createElement("tr");
+  		var newtd1=document.createElement("td");
+  		var newtd2=document.createElement("td");
+  		var newtd3=document.createElement("td");
+  		newtd1.innerHTML='<input type = "checkbox" name = "product"  onclick="checkSingle();" />';
+  		newtd2.innerHTML='移动开发技术';
+  		newtd3.innerHTML='45';
+  		newtr.appendChild(newtd1);
+  		newtr.appendChild(newtd2);
+  		newtr.appendChild(newtd3);
+  		console.log(newtr);
+  		var trs=document.getElementsByTagName('tr');
+  		trs[0].parentNode.appendChild(newtr);
+  	}
+  </script>
+ </head>
+
+<body>
+  <input type="button" value="添加一行" onclick="addRow();">
+  <table  border = "1" cellspacing = "0" cellpadding = "0"  width = "600px;" id="tb1" >
+    <tr>
+    	<td><input type = "checkbox" id = "all"  value =  "全选" onclick="checkAll();" />全选</td>
+    	<td>商品名称</td>
+    	<td>价格</td>
+    </tr>
+    <tr>
+    	<td><input type = "checkbox" name = "product" onclick="checkSingle();" /></td>
+        <td>网页设计</td>
+        <td>25</td>
+    </tr>
+    <tr>
+    	<td><input type = "checkbox" name = "product"  onclick="checkSingle();" /></td>
+    	<td>css + div布局</td>
+    	<td>26</td>
+    </tr>
+    <tr>
+    	<td><input type = "checkbox" name = "product"  onclick="checkSingle();" /></td>
+    	<td>JavaScript程序设计</td>
+    	<td>28</td>
+    </tr>
+    <tr>
+      <td><input type = "checkbox" name = "product"  onclick="checkSingle();" /></td>
+      <td>JavaScript程序设计</td>
+      <td>28</td>
+    </tr>
+  </table>
+</body>
+</html>

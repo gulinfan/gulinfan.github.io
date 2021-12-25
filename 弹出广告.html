@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script language="javascript">
+		var newwin;
+		function p1(){
+			newwin=window.open("advertise.html","w1",'height=300,width=400,left=200,top=300');
+		}
+		function p2()
+		{newwin.close();}
+		window.setTimeout("p1()","1000");
+		window.setTimeout("p2()","5000");
+	</script>
+</head>
+
+<body>
+  自动弹出和关闭广告！
+</body>
+</html>

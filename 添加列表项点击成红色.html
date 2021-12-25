@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.menu{
+			width: 100px;
+			padding: 0;
+			list-style: none;
+		}
+		.menu li{
+			margin:10px 0;
+			text-align: center;
+			background-color: #ccc;
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+    <input type="button"  value="添加列表项" onclick="addLi()">
+	<ul class="menu">
+		<li>第1项</li>
+		<li>第2项</li>
+		<li>第3项</li>
+		<li>第4项</li>
+		<li>第5项</li>
+		<li>第6项</li>
+	</ul>
+	<script>
+	    function addLi(){
+	    	var ll=document.createElement("li");
+	    	ll.innerHTML="新增的列表项";
+	    	ll.onclick=function(){
+	    		this.style.backgroundColor="red";
+	    	}
+	    	document.querySelector(".menu").appendChild(ll);
+	    }
+		//1.先获取所有的li元素
+		var lis=document.getElementsByTagName('li');
+		//2.为所有的li元素注册click事件
+		for(var i=0;i<lis.length;i++){
+			lis[i].onclick=function(e){
+				//e为事件发生时的事件对象
+				e.target.style.backgroundColor="red";
+			};
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body onload="currenttime();">
+	<h1 align="center">距离2021年春节还有<span id="time" style="background-color:black; color:red;"></span></h1>
+</body>
+<script language=JavaScript> 
+ var dtime = new Date("2021/02/12 00:00:00");  //定义截止时间          
+function currenttime() 
+{ 
+ var now = new Date();  //获取当前时间 
+ var times=dtime-now;     //Date对象实例可以做减法运算，结果为二者之间的时间间隔，单位：毫秒 
+ //得到整的天数 
+var days=Math.floor(times/1000/60/60/24); 
+//得到不够整天的剩余小时数
+var hours=Math.floor(times/1000/60/60%24); 
+//得到不够整小时的剩余分钟数
+var minutes=Math.floor(times/1000/60%60);
+if(minutes<=9)
+minutes="0"+minutes;
+//得到不够整分钟的剩余秒数 
+var seconds=Math.floor(times/1000%60);
+if(seconds<=9)
+seconds="0"+seconds;
+document.getElementById("time").innerHTML = days + "天" +hours + "小时" + minutes + "分" + seconds + "秒";    
+}
+setInterval("currenttime()",1000); 
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!-- D:\code\chapter6\6-12.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <title>弹出下拉列表</title>
+  <style>
+    fieldset {
+    padding:20px; width:200px;
+    margin:0 auto;
+    }
+    #fromStation {
+    width:100px;
+    }
+    #stationList {
+    margin-left:71px;
+    width:104px; 
+    display:none;
+    }
+  </style>
+  <script  type = "text/javascript">
+  function showSel(){
+      document.getElementById("stationList").style.display = "block";
+    }
+   function setText(){
+      document.getElementById("fromStation").value = 
+        document.getElementById("stationList" ).value;
+    }
+  </script>
+</head>
+<body>
+  <fieldset>
+    <legend> 余票查询 </legend>
+    *出发地：<input id = "fromStation"  placeholder = "简码/汉字" 
+onclick="showSel();"><br/>
+    <select id = "stationList"  size = "5" onclick="setText();">
+      <option> 北京 </option>
+      <option> 上海 </option>
+      <option> 天津 </option>
+      <option> 重庆 </option>
+     </select>
+  </fieldset>
+  
+</body>
+</html>

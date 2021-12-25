@@ -1,0 +1,39 @@
+<!-- D:\code\chapter6\6-6.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <title>创建动态表格</title>
+  <style>
+    #form1{
+      padding:10px; width:400px; margin:0 auto;
+    }
+  </style>
+  <script  type = "text/javascript">
+    function createTable() { 
+      var r1 = document.getElementById( "row" ).value;
+      var c1 = document.getElementById( "col" ).value;  
+      var n = 1;   //单元格中的文字
+      var str = "<table width = '100%'  border = '1' cellspacing = '0' cellpadding = '0' ><tbody>";
+      for(i = 0; i<r1; i++) {
+        str = str+"<tr align = 'center'>"
+        for(j = 0; j<c1; j++) str = str+"<td>"+(n++)+"</td>"
+        str = str+"</tr>"
+	     }
+      var d1 = document.getElementById( "d1" );
+      d1.innerHTML = str+"</tbody></table>";
+    }
+  </script>
+</head>
+<body>
+  <form id = "form1" name = "form1" method = "post" action = "">
+    <fieldset>
+    <legend>动态创建表格</legend>
+    输入表格的行数：<input type = "text" id = "row" placeholder = "请输入表格的行数" required  autofocus /><br/>
+    输入表格的列数：<input type = "text" id = "col" placeholder = "请输入表格的列数" /><br/>
+    <input type = "button" id = "ok" value = "产生表格" onclick = "createTable()"/>
+    </fieldset>
+  </form>
+  <div id = "d1"></div>
+</body>
+</html>

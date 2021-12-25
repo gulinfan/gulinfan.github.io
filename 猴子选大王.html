@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>猴子选大王</title>
+	<script type="text/javascript">
+	var total=prompt("请输入猴子的总数：");
+	var kick=prompt("踢出第几只猴子：");
+	var monkey=[];
+	for(var i=1;i<=total;i++)
+		monkey.push(i);
+	i=0;
+	while(monkey.length>1){
+		++i;
+		head=monkey.shift();
+		if(i%kick!=0)  monkey.push(head);
+	}
+	// console.log("猴王编号为："+monkey[0]);
+	document.write("猴王编号为："+monkey[0]);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

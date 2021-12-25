@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>事件委托练习-表格操作</title>
+  <style>
+    input[type=button]{
+      margin: 5px 0;
+    }
+  	tr{
+  		text-align: center;
+  	}
+  </style>
+</head>
+
+<body>
+  <input type="button" value="添加记录" id="add_btn" />
+  <table width="500" border="1" cellspacing="0" cellpadding="0">
+    <tr class="title">
+      <td>姓名</td>
+      <td>年龄</td>
+      <td>操作</td>
+    </tr>
+    <tr>
+      <td>小明</td>
+      <td>18</td>
+      <td><input type="button" value="删除" /></td>
+    </tr>
+    <tr>
+      <td>小黄</td>
+      <td>19</td>
+      <td><input type="button" value="删除" /></td>
+    </tr>
+    <tr>
+      <td>小芳</td>
+      <td>19</td>
+      <td><input type="button" value="删除" /></td>
+    </tr>
+    <tr>
+     	<td>小张</td>
+      <td>18</td>
+      <td><input type="button" value="删除" /></td>
+    </tr>  
+  </table>
+  <script>
+    	var addBtn=document.getElementById("add_btn");
+    	addBtn.addEventListener('click',function(){
+      		var newtr=document.createElement("tr");
+      		var td1=document.createElement("td");
+      		var td2=document.createElement("td");
+      		var td3=document.createElement("td");
+      		//要注意添加新行要使用的方法是tr的父元素tbody的
+      		document.getElementsByClassName("title")[0].parentNode.appendChild(newtr);
+      		newtr.appendChild(td1);
+      		newtr.appendChild(td2);
+      		newtr.appendChild(td3);
+      		// td1.innerHTML="小李";
+      		// td2.innerHTML="19";
+          td1.innerHTML=window.prompt("请输入姓名:","");
+          td2.innerHTML=window.prompt("请输入年龄:","");
+      		td3.innerHTML="<input type='button' value='删除' />";
+    	});
+      var tb=document.getElementsByTagName("table")[0];
+  	  tb.addEventListener("click",function(e){		
+          if(e.target.value=="删除")
+          //if(e.target.type=="button")
+          {
+            var tbody=e.target.parentNode.parentNode.parentNode;
+            var deltr=e.target.parentNode.parentNode;
+            tbody.removeChild(deltr);          
+          }     			
+    	});
+  </script>
+</body>
+</html>

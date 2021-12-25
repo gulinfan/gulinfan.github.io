@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>dom操作练习</title>
+    <style>
+        table{
+            width: 500px;
+            margin:30px auto;
+            border:1px solid #ddd;
+            border-collapse:collapse;
+        }
+        th,td{
+            height: 50px;
+            text-align:center;
+            border:1px solid #ddd;
+        }
+        input[type=text]{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>dom练习</caption>
+        <thead>
+            <tr>
+                <th width="300">姓名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text"></td>
+                <td>
+                    <input type="button" value="确定" onclick="ok();">
+                    <input type="button" value="修改" onclick="modify();">
+                    <input type="button" value="删除" onclick="deltr();">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function ok()
+        {
+           var input1=document.getElementsByTagName('input')[0];
+           var val=input1.value;
+           var span=document.createElement('span');
+           input1.parentNode.replaceChild(span,input1);
+           span.innerText=val;
+        }
+        function modify()
+        {
+           var span=document.getElementsByTagName('span')[0];
+           var val=span.innerText; 
+           var input=document.createElement('input');
+           // console.log(input);
+           input.type='text';
+           span.parentNode.replaceChild(input,span);
+           input.value=val;
+        }
+        /*因为使用dom方法来操作dom对象，会动态的改变网页的结构和内容，
+        所以不能像以前观察静态网页的方法来查看网页元素，必须借助CHrome
+        浏览器的调试工具查看网页元素的动态变化*/
+        function deltr()
+        {
+            var span=document.getElementsByTagName('span')[0];
+            span.parentNode.parentNode.parentNode.removeChild(span.parentNode.parentNode);
+        }
+    </script>
+</body>
+</html>
