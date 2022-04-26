@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+    1有部门表dept和员工表emp1nyee，根据如下条件编写sq1语句，1)查询存在年龄大于21岁的员工所对应的部门信息。2)采用自连接查询方式查询与王红在同一个部门的员工。
+select * from department where exists （select did from employee where age>21）
+select p1.* from employee p1 join employee p2 on p1. did=p2.didi where p2.name='王红'
+
+2已知有一张sa1es 表，表中有上半年的销量first_ha1f和下半年的销量1atter_half。请在sales表上创建一个视图，查询出一年的销量
+create view view_sales as select first_half+ latter_half
+from sales
+
+
+
+1已知有一张user表，表中有字段id, name，请按照以下要求编写SQL语句1）删除user表中id为NTL.L.的数据2）将user表中name为NULL的name值都改为“匿名”考生答案:
+delete from userwhere id is null update from user set name ='匿名’where name is null;
+
+2请按照以下要求设计sq1语句。假定student表中有: id, name,grade, gender四个字段要求如下。查询 name字段值以字符“h”开始或者gender字段值为“女”或者grade字段值为100的记录。上面三个条件只要一个条件成立就符合要求，写出一个 sq1语句实
+select *from student where name like 'h%’or gender='女’or grade = 100;
+
+1现有一张表score记录所有学生数学和英语的成绩，表中字段有学号，姓名，学科，分数。要求如下。1)查询姓名为张三的学生成绩2)查询英语成绩大于90分的同学3)查询总分大于180分的所有同学的学号考生答案:
+select*fromscore where name="张三”select*from score where english>90 select *from score where english+nath>180
+
+2已知数据库中有一张会员表，表中有字段会员编号、姓名、性别、入会时间，请查询出表中除了会员“小七”的所有会员的信息.
+se1ect * from 会员 where姓名!=’小七’;
+
+分别写出启动、连接、停止和卸载ySq1服务(服务名为MySq1)的语句?
+net start mysql mysql -u root -h127.0.0.1 -p password net stop mysql mysql quit
+
+2请用create index语句在数据库db_test—的表content中，根据留言标题列的前三个 字符采用默认的索引类型创建一个升序索引 index_subject。
+mysq1>USE db_test ; Database changed mysql>CREATE INDEX index_subject -> n content(subject(3)ASC);
+
+
+请使用 select into...outfile 语句，备份数据库 db_test 中表 content 的全部数据到 c 盘的 backup 目录下一个名为 backupcontent．txt 的文件中。
+　mysql>USE db_test;
+　Database changed
+　mysql>SELECT*FROM content
+　一>INTO OUTFILE’C：/BACKUP/backupcontent.txt’
+　一>FIELDS TERMINATED BY’,’
+　一>OPTIONALLY ENCLOSED BY’"’
+　一>LINES TERMINATED BY’?’：
+　Query OK，1 row affected(0.Ol sec)
+
+请查询出send表中日期(sendtime字段）为当天的所有记录的 sql语句，其中字段sendtime为datetime型。
+SELECT * FROM send WERE datediff(dd, sendtime, getdate())=0
+
+1已知有一张user表，表中有字段id, name，请按照以下要求编写SQL语句1）删除user表中id 为NULL的数据2)将user表中name为NULL的name值都改为“匿名”考生答案:
+(1)DELETE FROM user WHERE id IS NULL;(2)UPDATE user SET name='匿名 where name IS NULL;
+
+3) 写代码返回所有学生的信息。
+4) 写代码返回所有姓名带 J 字母的学生信息。
+5) 写代码返回所有郑州籍贯的学生信息。
+6) 写代码返回所有学费低于平均学费的学生信息。提示使用嵌套的 select 查询。
+select * from student_web
+select * from student_web where s_name like '%J%'
+select * from student_web where s_hometown like '%郑州%'
+select * from student_web where s_stuition<(select avg(s_tuition) from student_web)
+
+
+
+</h1>
+</body>
+</html>
