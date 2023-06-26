@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            margin: auto;
+            color: blue;
+            /* width: 800px; */
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        span {
+            color: #f00;
+            font-weight: 700;
+            width: 20px;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>软工2115班施力帆的金字塔</h1>
+    <div id="jinzita"></div>
+
+    <script>
+        //1.输入金字塔层数level：
+        var level = prompt('请设置金字塔的层数');
+        //2. 转化为整数，其余情况皆转为NaN
+        level = parseInt(level);
+        //3. 是非数字，重新输入
+        if (isNaN(level)) {
+            alert('金字塔的层数必须是纯数字');
+            level = prompt('请设置金字塔的层数');
+        }
+        //4.如果是0，重新输入
+        if (level == 0) {
+            alert('金字塔的层数不能为0');
+            level = prompt('请设置金字塔的层数');
+        }
+        // 5. 给字符串赋初始值
+        var str = '';
+        //6. 循环遍历金字塔的层数，即拼接字符串，空白的地方是空格“ str += '<span>&nbsp</span>';”
+        for (var i = 1; i <= level; ++i) {
+            //补充代码
+
+        }
+        //7.把拼接好的字符串放到div内，用innerHTML或者innerText
+
+    </script>
+
+</body>
+
+</html>

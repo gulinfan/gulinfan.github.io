@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        wrapper {
+            width: 100%;
+            position: relative;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        .pre,
+        .next {
+            width: 40px;
+            /*文字水平居中*/
+            line-height: 40px;
+            /*文字水平居中*/
+            text-align: center;
+            color: #fff;
+            font-family: "宋体";
+            font-size: 48px;
+            font-weight: 600;
+            text-shadow: #666 2px 2px 5px;
+            /*定位：子绝父相*/
+            position: absolute;
+            /*盒子垂直居中*/
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        
+        .pre {
+            left: 0;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .pre:hover,
+        .next:hover {
+            color: red;
+            cursor: pointer;
+        }
+        
+        .crtl {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .crtl.slider-crtl-con {
+            display: inline-block;
+            width: 4%;
+            height: 4px;
+            background-color: #c5c2c2;
+            margin: 10px 6px;
+        }
+        
+        .crtl.span:hover {
+            background-color: red;
+            cousor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="./images/stone.jpg" />
+        <!--左侧箭头-->
+        <span class="pre">&lt</span>
+        <!--左侧箭头-->
+        <span class="next">&gt</span>
+        <!--底部盒子-->
+        <div class="crtl">
+            <span class="silder-ctrl-con"></span>
+            <span class="silder-ctrl-con"></span>
+            <span class="silder-ctrl-con"></span>
+            <span class="silder-ctrl-con"></span>
+            <span class="silder-ctrl-con"></span>
+            <span class="silder-ctrl-con"></span>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

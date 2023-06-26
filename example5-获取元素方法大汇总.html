@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>查找方法汇总</title>
+
+    <style>
+        form {
+            width: 600px;
+            height: 50px;
+            margin: 10px auto;
+            border: 1px solid #000;
+            background-color: rgb(247, 242, 242);
+            text-align: center;
+            line-height: 50px;
+        }
+
+        span {
+            color: #00f;
+        }
+
+        .ff,
+        h1 {
+            color: #f00;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="Form1" name="Form1">
+        <span>请输入你的班级和姓名</span>
+        <input type="text" name="username" class="ff" id="inputName" placeholder="请输入您的班级和姓名">
+        <h1 id="h1"></h1>
+    </form>
+
+    <script>
+        //方法1：用getElementById查找文本框,并在控制台显示
+        var f1 = document.getElementById('inputName');
+        console.log('1.用getElementById查找：');
+        console.log(f1);
+
+        //方法2：用querySelector查找文本框,并在控制台显示
+        var f2 = document.querySelector("input");
+        console.log('2.用document.querySelector查找：');
+        console.log(f2);
+
+        //方法3：用getElementByTagName查找文本框,并在控制台显示
+        var f3 = document.getElementsByTagName('input');
+        console.log('3.用getElementsByTagName');
+        console.log(f3[0]);
+
+        //方法4：用getElementsByClassName查找文本框,并在控制台显示
+        var f4 = document.getElementsByClassName('ff');
+        console.log('4.用getElementsByClassName');
+        console.log(f4[0]);
+
+        //方法5：用getElementsByName查找文本框,并在控制台显示
+        var f5 = document.getElementsByName('username');
+        console.log('5.用getElementsByName');
+        console.log(f5[0]);
+
+        //方法6：用querySelectorAll查找文本框,并在控制台显示
+        var f6 = document.querySelectorAll('input');
+        console.log('6.用querySelectorAll查找');
+        console.log(f6[0]);
+
+        //方法7：用form的name属性和表单name查找文本框,并在控制台显示
+        var f7 = document.Form1.username;
+        console.log('7.用form的name属性和表单name查找');
+        console.log(f7);
+
+        //方法8：用forms和表单name查找文本框,并在控制台显示
+        var f8 = document.forms;
+        console.log('8.用forms');
+        console.log(f8[0].username);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平导航菜单</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        ul li {
+            float: left;
+        }
+        
+        .menu {
+            width: 1100px;
+            height: 50px;
+            border: 1px black solid;
+            text-align: center;
+            background-color: #009;
+        }
+        
+        li {
+            list-style-type: none;
+            width: 110px;
+        }
+        
+        .menu>li {
+            float: left;
+        }
+        
+        .menu li a {
+            display: block;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .menu li ul li {
+            background-color: #00f;
+            height: 40px;
+            display: none;
+        }
+        
+        .menu ul li a {
+            font-weight: normal;
+            font-style: 14px;
+        }
+        
+        .menu>li:hover>a {
+            background-color: #006;
+            color: red;
+        }
+        
+        .menu>li:hover ul li {
+            display: block;
+        }
+        
+        .menu ul li a:hover {
+            color: #df4136;
+            background-color: #2a40bd;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>
+            <a href="#">学校首页</a>
+        </li>
+        <li>
+            <a href="#">学校概况</a>
+            <ul>
+                <li> <a href="#">科大简介</a> </li>
+                <li> <a href="#">现任领导</a> </li>
+                <li> <a href="#">组织机构</a> </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">院系设置</a>
+            <ul>
+                <li><a href="#">软件学院</a></li>
+                <li><a href="#">信工学院</a></li>
+                <li><a href="#">机电学院</a></li>
+                <li><a href="#">车辆学院</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">教育教学</a>
+            <ul>
+                <li><a href="#">本科生教育</a></li>
+                <li><a href="#">研究生教育</a></li>
+                <li><a href="#">继续教育</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">科学研究</a>
+            <ul>
+                <li><a href="#">自认科学</a></li>
+                <li><a href="#">人文科学</a></li>
+                <li><a href="#">重点学科</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">招生就业</a>
+            <ul>
+                <li><a href="#">本科生招生</a></li>
+                <li><a href="#">研究生招生</a></li>
+                <li><a href="#">国际生招生</a></li>
+                <li><a href="#">继续教育招生</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">人才招聘</a>
+            <ul>
+                <li><a href="#">人事处</a></li>
+                <li><a href="#">人事文件</a></li>
+                <li><a href="#">人才招聘</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">合作交流</a>
+            <ul>
+                <li><a href="#">合作办学</a></li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">智慧校园</a>
+            <ul>
+                <li><a href="#">图书馆</a></li>
+                <li><a href="#">网络中心</a></li>
+                <li><a href="#">现代教育中心</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">办公OS</a>
+            <ul>
+                <li><a href="#">河科大新闻</a></li>
+                <li><a href="#">河科大通知</a></li>
+                <li><a href="#">河科大文件</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</body>
+
+</html>

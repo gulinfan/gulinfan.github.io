@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form1" name="form1" method="post" action="">
+        <fieldset>
+            <legend>根据出生年份计算生肖</legend>
+            <p align="center">请输入<span style="color:red ;font-weight: 600;">2115班施力帆</span>的出生年份：
+                <input name="txtYear" type="text" id="txtYear" size="12" />
+                <input name="btnShow" type="button" id="btnShow" value="显示生肖" onclick="showShengxiao();" />
+            </p>
+            <p id="Shengxiao" align="center">&nbsp;</p>
+        </fieldset>
+
+    </form>
+    <script>
+        function showShengxiao() {
+            //1.拿到年份
+            //2.年份%12求余
+            //3.switch
+            //4.把生肖写到p
+            var birYear = document.getElementById("txtYear").value;
+            var yushu;
+            var sShengxiao;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div><img src="images/girl.jpg" alt=""></div>  
+</body>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        position: relative;   /*父相子绝*/
+
+    }
+    .box img{
+        width: 100%;
+        border-radius: 50%;
+    }
+    .box:hover::before{
+        display: block;
+        content: '';
+        width: 200px;
+        height: 200px;
+        background-color: #FF8080;
+        opacity: 0.3;
+        border-radius: 50%;
+        position: absolute;  /*“父相子绝”*/
+        left: 0;
+        top:0;
+    }
+</style>
+</html>

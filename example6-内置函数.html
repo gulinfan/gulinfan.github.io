@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>内置函数示例</title>
+    <script>
+        console.log("(1)使用isFinite()函数的结果如下：");
+        console.log("123的结果是有限值吗？" + isFinite(123));
+        console.log("1/0的结果是有限值吗？" + isFinite('1/0'));
+        console.log("hello的结果是有限值吗？" + isFinite('hello'));
+
+        console.log("(2)使用 函数的结果如下：");
+        console.log("'http://www.miaov.com#@$?username=张 三'字符串编码后可得到URI：" +
+            encodeURI("http://www.miao v.com#@$?username=张 三"));
+
+        console.log("(3)使用encodeURIComponent()函数的结果如下：");
+        console.log("'http://www.miaov.com?username=张 三'字符串使用 encodeURIComponent 进行" +
+            "编码得到的 URI：http://www.miaov.com?username=" + encodeURIComponent("张 三"));
+
+        console.log("(4)使用decodeURI()函数的结果如下：");
+        console.log("对上面使用encodeURI()编码可得到URI解码后的结果是：" +
+            decodeURI(encodeURI("http://www.miao v.com#@$?username=张 三")));
+
+        console.log("(5)使用decodeURIComponent()函数的结果如下：");
+        console.log("对上面使用 encodeURI()编码可得到 URI 解码后的结果是：" +
+            "http://www.miaov.com?username=" + decodeURI(encodeURIComponent("张 三")));
+    </script>
+</head>
+
+<body>
+    <script>
+        var set1 = ";,/?:@&=+$";  // 保留字符
+        var set2 = "-_.!~*'()";   // 不转义字符
+        var set3 = "#";           // 数字标志
+        var set4 = "ABC abc 123"; // 字母数字字符和空格
+
+        console.log(encodeURI(set1)); // ;,/?:@&=+$
+        console.log(encodeURI(set2)); // -_.!~*'()
+        console.log(encodeURI(set3)); // #
+        console.log(encodeURI(set4)); // ABC%20abc%20123 (空格被编码为 %20)
+
+        console.log(encodeURIComponent(set1)); // %3B%2C%2F%3F%3A%40%26%3D%2B%24
+        console.log(encodeURIComponent(set2)); // -_.!~*'()
+        console.log(encodeURIComponent(set3)); // %23
+        console.log(encodeURIComponent(set4)); // ABC%20abc%20123 (空格被编码为 %20)
+    </script>
+</body>
+
+</html>
